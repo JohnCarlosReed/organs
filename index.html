@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Organs - Metabolism Game</title>
+
+<style>
+img 
+{
+height:30px;
+width:30px;
+}
+</style>
+
 </head>
 <body>
 <script>
@@ -10,21 +19,51 @@
 function increaseGut()
 {
    //document.getElementById("intro").innerHTML=Date();
-   alert('We got increaseGut()');
+   alert('We got increaseGut');
 }
 
 function decreaseGut()
 {
-   alert('We got decreaseGut()');
+   alert('We got decreaseGut');
+}
+
+function increaseLiver()
+{
+   alert('We got increaseLiver');
+}
+
+function decreaseLiver()
+{
+   alert('We got decreaseLiver');
+}
+
+function increaseMuscle()
+{
+   alert('We got increaseMuscle');
+}
+
+function decreaseMuscle()
+{
+   alert('We got decreaseMuscle');
 }
 
 </script>
 
 <p id="intro">Welcome to Organs</p>
 
-gut liver muscle
-<button id="increaseGut" type="submit" onclick="increaseGut()"><img src="images/up_arrow.png"/></button>
-<button id="decreaseGut" type="submit" onclick="decreaseGut()"><img src="images/down_arrow.png"/></button>
+<table>
+  <tr>
+    <td><button id="increaseGut" type="submit" onclick="increaseGut()"><img src="images/up_arrow.png"/></button>
+    <td><button id="increaseLiver" type="submit" onclick="increaseLiver()"><img src="images/up_arrow.png"/></button></td>
+    <td><button id="increaseMuscle" type="submit" onclick="increaseMuscle()"><img src="images/up_arrow.png"/></button></td>
+  </tr>
+  <tr>
+    <td><button id="decreaseGut" type="submit" onclick="decreaseGut()"><img src="images/down_arrow.png"/></button>
+    <td><button id="decreaseLiver" type="submit" onclick="decreaseLiver()"><img src="images/down_arrow.png"/></button></td>
+    <td><button id="decreaseMuscle" type="submit" onclick="decreaseMuscle()"><img src="images/down_arrow.png"/></button></td>
+  </tr>
+
+</table>
 
 
 </body>
