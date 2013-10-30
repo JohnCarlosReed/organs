@@ -5,11 +5,11 @@
 <title>Organs - Metabolism Game</title>
 
 <style>
-img 
-{
-height:30px;
-width:30px;
-}
+img { height:30px; width:30px; }
+td { text-align:center }
+#maintable{ width:60%; margin-left:20%; margin-right:20% } 
+
+
 </style>
 
 </head>
@@ -51,20 +51,49 @@ function decreaseMuscle()
 
 <p id="intro">Welcome to Organs</p>
 
-<table>
+
+<table id="maintable">
+  <tr>
+    <td colspan=4>tissue weight, kg
+    </td>
+  </tr>
+
+  <tr>
+    <td>gut</td>
+    <td>liver</td>
+    <td>muscle</td>
+    <td>adipose</td>
+  </tr>
+
+  <tr>
+    <td>12.3</td>
+    <td>45.6</td>
+    <td>78.9</td>
+    <td>12.3</td>
+  </tr>
+
+
+  <tr>
+    <td>[guage]</td>
+    <td>[guage]</td>
+    <td>[guage]</td>
+    <td></td>
+  </tr>
+
   <tr>
     <td><button id="increaseGut" type="submit" onclick="increaseGut()"><img src="images/up_arrow.png"/></button>
     <td><button id="increaseLiver" type="submit" onclick="increaseLiver()"><img src="images/up_arrow.png"/></button></td>
     <td><button id="increaseMuscle" type="submit" onclick="increaseMuscle()"><img src="images/up_arrow.png"/></button></td>
+    <td>Pause</td>
   </tr>
   <tr>
     <td><button id="decreaseGut" type="submit" onclick="decreaseGut()"><img src="images/down_arrow.png"/></button>
     <td><button id="decreaseLiver" type="submit" onclick="decreaseLiver()"><img src="images/down_arrow.png"/></button></td>
     <td><button id="decreaseMuscle" type="submit" onclick="decreaseMuscle()"><img src="images/down_arrow.png"/></button></td>
+    <td>Go</td>
   </tr>
 
 </table>
-
 
 </body>
 
