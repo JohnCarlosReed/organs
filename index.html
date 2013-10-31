@@ -15,35 +15,61 @@ h1 { text-align:center }
 <body>
 <script>
 
+var gutRate = 0;
+var liverRate = 0;
+var muscleRate = 0;
+
 function increaseGut()
 {
-   //document.getElementById("intro").innerHTML=Date();
-   alert('We got increaseGut');
+   gutRate++;
+   document.getElementById("gutRate").innerHTML=gutRate;
 }
 
 function decreaseGut()
 {
-   alert('We got decreaseGut');
+   gutRate--;
+   document.getElementById("gutRate").innerHTML=gutRate;
 }
 
 function increaseLiver()
 {
-   alert('We got increaseLiver');
+   liverRate++;
+   document.getElementById("liverRate").innerHTML=liverRate;
 }
 
 function decreaseLiver()
 {
-   alert('We got decreaseLiver');
+   liverRate--;
+   document.getElementById("liverRate").innerHTML=liverRate;
 }
 
 function increaseMuscle()
 {
-   alert('We got increaseMuscle');
+   muscleRate++;
+   document.getElementById("muscleRate").innerHTML=muscleRate;
 }
 
 function decreaseMuscle()
 {
-   alert('We got decreaseMuscle');
+   muscleRate--;
+   document.getElementById("muscleRate").innerHTML=muscleRate;
+}
+
+
+</script>
+
+<h1>Welcome to Organs</h1>
+
+
+<table id="maintable">
+  <tr>
+    <td colspan=4>tissue weight, kg
+    </td>
+  </tr>
+
+  <tr>
+    <td>gut</td>
+    <td>liver</td>
 }
 
 </script>
@@ -77,9 +103,9 @@ function decreaseMuscle()
   </tr>
 
   <tr>
-    <td>0</td>
-    <td>0</td>
-    <td>0</td>
+    <td id="gutRate">0</td>
+    <td id="liverRate">0</td>
+    <td id="muscleRate">0</td>
     <td></td>
   </tr>
 
