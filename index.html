@@ -5,14 +5,16 @@
 <title>Organs - Metabolism Game</title>
 
 <style>
-img { height:30px; width:30px; }
-td { text-align:center }
-h1 { text-align:center }
-#maintable{ width:60%; margin-left:20%; float:left; } 
+  #mainTable{ width:60%; margin-left:15%; float:left; } 
+  img { height:30px; width:30px; }
+  td { text-align:center }
+  h1 { text-align:center }
 </style>
 
 </head>
+
 <body>
+
 <!-- TODO: copy this to my drive -->
 <script type='text/javascript' src='http://bernii.github.io/gauge.js/dist/gauge.min.js'></script>
 <script>
@@ -89,7 +91,7 @@ gauge.set(225); // set actual value
 </script>
 
 
-<table id="maintable" border=1>
+<table id="mainTable" border=1>
 
   <tr>
     <td colspan=2>feed intake <span id="feedIntake">12</span> kg/d</td>
@@ -115,8 +117,6 @@ gauge.set(225); // set actual value
     <td>78.9</td>
     <td>12.3</td>
   </tr>
-
-  <tr>
     <td colspan=3>tissue accretion rates, %/d
     </td>
   </tr>
@@ -143,23 +143,31 @@ gauge.set(225); // set actual value
 
 </table>
 
-<table>
+<table id="bloodIndicatorTable" border=1>
+  <th>blood indicators</th>
+  <th></th>
   <tr>
+    <td>[guage]</td>
     <td>glucose</td>
   </tr>
   <tr>
+    <td>[guage]</td>
     <td>NEFA</td>
   </tr>
   <tr>
+    <td>[guage]</td>
     <td>HB</td>
   </tr>
   <tr>
+    <td>[guage]</td>
     <td>amino acids</td>
   </tr>
   <tr>
+    <td>[guage]</td>
     <td>NH3</td>
   </tr>
   <tr>
+    <td>[guage]</td>
     <td>urea</td>
   </tr>
 </table>
