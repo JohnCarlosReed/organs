@@ -15,11 +15,12 @@
 
 <body>
 
-<!-- TODO: copy this to my drive -->
 <script type='text/javascript' src='javascripts/gauge.min.js'></script>
-<script type='text/javascript' src='javascripts/jquery-2.0.3'></script>
 
 <script>
+
+window.onload=function(){
+
 var gutRate = 0;
 var liverRate = 0;
 var muscleRate = 0;
@@ -78,18 +79,14 @@ var opts = {
 };
 
 
-// I put this into jQuery ready function just because it needs to run AFTER the canvas
-// element is loaded, otherwise you get a getContext is null error
-// There has to be a better way to do this, I don't really need jQuery at all.
-$(function() {
-      var target = document.getElementById('foo'); // your canvas element
-      var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
-      gauge.maxValue = 3000; // set max gauge value
-      gauge.animationSpeed = 32; // set animation speed (32 is default value)
-      gauge.set(225); // set actual value
-    }
-);
+var target = document.getElementById('foo'); // your canvas element
+var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+gauge.maxValue = 3000; // set max gauge value
+gauge.animationSpeed = 32; // set animation speed (32 is default value)
+gauge.set(225); // set actual value
 
+
+} // end window.onload
 
 </script>
 
