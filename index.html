@@ -9,6 +9,7 @@
   img { height:30px; width:30px; }
   td { text-align:center }
   h1 { text-align:center }
+  canvas { width:80px; height:40px; }
 </style>
 
 </head>
@@ -78,12 +79,42 @@ var opts = {
   generateGradient: true
 };
 
-
-var target = document.getElementById('foo'); // your canvas element
+<!-- TODO this stuff needs to get moved into functions -->
+var target = document.getElementById('glucoseGauge'); // your canvas element
 var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
 gauge.maxValue = 3000; // set max gauge value
 gauge.animationSpeed = 32; // set animation speed (32 is default value)
-gauge.set(225); // set actual value
+gauge.set(2000); // set actual value
+
+target = document.getElementById('nefaGauge'); // your canvas element
+gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+gauge.maxValue = 3000; // set max gauge value
+gauge.animationSpeed = 32; // set animation speed (32 is default value)
+gauge.set(3000); // set actual value
+
+target = document.getElementById('hbGauge'); // your canvas element
+gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+gauge.maxValue = 3000; // set max gauge value
+gauge.animationSpeed = 32; // set animation speed (32 is default value)
+gauge.set(500); // set actual value
+
+target = document.getElementById('aaGauge'); // your canvas element
+gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+gauge.maxValue = 3000; // set max gauge value
+gauge.animationSpeed = 32; // set animation speed (32 is default value)
+gauge.set(1000); // set actual value
+
+target = document.getElementById('nh3Gauge'); // your canvas element
+gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+gauge.maxValue = 3000; // set max gauge value
+gauge.animationSpeed = 32; // set animation speed (32 is default value)
+gauge.set(1600); // set actual value
+
+target = document.getElementById('ureaGauge'); // your canvas element
+gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+gauge.maxValue = 3000; // set max gauge value
+gauge.animationSpeed = 32; // set animation speed (32 is default value)
+gauge.set(1200); // set actual value
 
 
 } // end window.onload
@@ -92,7 +123,6 @@ gauge.set(225); // set actual value
 
 <h1>Welcome to Organs</h1>
 
-<canvas id="foo">gauge</canvas>
 
 <table id="mainTable" border=1>
 
@@ -150,27 +180,29 @@ gauge.set(225); // set actual value
   <th>blood indicators</th>
   <th></th>
   <tr>
-    <td>[gauge]</td>
+    <td>
+      <canvas id="glucoseGauge">gauge</canvas>
+    </td>
     <td>glucose</td>
   </tr>
   <tr>
-    <td>[gauge]</td>
+    <td><canvas id="nefaGauge">gauge</canvas></td>
     <td>NEFA</td>
   </tr>
   <tr>
-    <td>[gauge]</td>
+    <td><canvas id="hbGauge">gauge</canvas></td>
     <td>HB</td>
   </tr>
   <tr>
-    <td>[gauge]</td>
+    <td><canvas id="aaGauge">gauge</canvas></td>
     <td>amino acids</td>
   </tr>
   <tr>
-    <td>[gauge]</td>
+    <td><canvas id="nh3Gauge">gauge</canvas></td>
     <td>NH3</td>
   </tr>
   <tr>
-    <td>[gauge]</td>
+    <td><canvas id="ureaGauge">gauge</canvas></td>
     <td>urea</td>
   </tr>
 </table>
