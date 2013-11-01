@@ -6,6 +6,7 @@
 
 <style>
   #mainTable{ width:60%; margin-left:15%; float:left; } 
+  #mainTableHeader{ height:60px; } 
   img { height:30px; width:30px; }
   td { text-align:center }
   h1 { text-align:center }
@@ -20,7 +21,6 @@
 
 <script>
 
-window.onload=function(){
 
 var gutRate = 0;
 var liverRate = 0;
@@ -61,6 +61,9 @@ function decreaseMuscle()
    muscleRate--;
    document.getElementById("muscleRate").innerHTML=muscleRate;
 }
+
+<!-- this is needed because the gauge.js needs to run after canvas elements are loaded -->
+window.onload=function(){
 
 var opts = {
   lines: 12, // The number of lines to draw
@@ -124,8 +127,8 @@ gauge.set(1200); // set actual value
 <h1>Welcome to Organs</h1>
 
 
-<table id="mainTable" border=1>
-
+<table id="mainTable">
+  <th id="mainTableHeader" colspan=4></th>
   <tr>
     <td colspan=2>feed intake <span id="feedIntake">12</span> kg/d</td>
     <td colspan=2>body weight <span id="bodyWeight">114</span> kg</td>
@@ -176,7 +179,7 @@ gauge.set(1200); // set actual value
 
 </table>
 
-<table id="bloodIndicatorTable" border=1>
+<table id="bloodIndicatorTable">
   <th>blood indicators</th>
   <th></th>
   <tr>
