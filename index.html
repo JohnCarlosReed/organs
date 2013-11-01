@@ -16,10 +16,10 @@
 <body>
 
 <!-- TODO: copy this to my drive -->
-<script type='text/javascript' src='http://bernii.github.io/gauge.js/dist/gauge.min.js'></script>
+<script type='text/javascript' src='javascripts/gauge.min.js'></script>
+<script type='text/javascript' src='javascripts/jquery-2.0.3'></script>
+
 <script>
-
-
 var gutRate = 0;
 var liverRate = 0;
 var muscleRate = 0;
@@ -60,13 +60,6 @@ function decreaseMuscle()
    document.getElementById("muscleRate").innerHTML=muscleRate;
 }
 
-
-</script>
-
-<h1>Welcome to Organs</h1>
-<!-- TODO:  use jQuery to load this when the dom is ready or other solution --> 
-<canvas id="foo">guage</canvas>
-<script>
 var opts = {
   lines: 12, // The number of lines to draw
   angle: 0.15, // The length of each line
@@ -83,13 +76,26 @@ var opts = {
   strokeColor: '#E0E0E0',   // to see which ones work best for you
   generateGradient: true
 };
-var target = document.getElementById('foo'); // your canvas element
- var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
-gauge.maxValue = 3000; // set max gauge value
-gauge.animationSpeed = 32; // set animation speed (32 is default value)
-gauge.set(225); // set actual value
+
+
+// I put this into jQuery ready function just because it needs to run AFTER the canvas
+// element is loaded, otherwise you get a getContext is null error
+// There has to be a better way to do this, I don't really need jQuery at all.
+$(function() {
+      var target = document.getElementById('foo'); // your canvas element
+      var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+      gauge.maxValue = 3000; // set max gauge value
+      gauge.animationSpeed = 32; // set animation speed (32 is default value)
+      gauge.set(225); // set actual value
+    }
+);
+
+
 </script>
 
+<h1>Welcome to Organs</h1>
+
+<canvas id="foo">gauge</canvas>
 
 <table id="mainTable" border=1>
 
@@ -147,27 +153,27 @@ gauge.set(225); // set actual value
   <th>blood indicators</th>
   <th></th>
   <tr>
-    <td>[guage]</td>
+    <td>[gauge]</td>
     <td>glucose</td>
   </tr>
   <tr>
-    <td>[guage]</td>
+    <td>[gauge]</td>
     <td>NEFA</td>
   </tr>
   <tr>
-    <td>[guage]</td>
+    <td>[gauge]</td>
     <td>HB</td>
   </tr>
   <tr>
-    <td>[guage]</td>
+    <td>[gauge]</td>
     <td>amino acids</td>
   </tr>
   <tr>
-    <td>[guage]</td>
+    <td>[gauge]</td>
     <td>NH3</td>
   </tr>
   <tr>
-    <td>[guage]</td>
+    <td>[gauge]</td>
     <td>urea</td>
   </tr>
 </table>
