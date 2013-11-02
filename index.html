@@ -28,14 +28,18 @@ var muscleRate = 0;
 
 function increaseGut()
 {
-   gutRate++;
-   document.getElementById("gutRate").innerHTML=gutRate;
+  gutRate++;
+  document.getElementById("gutRate").innerHTML=gutRate;
+  if( gutRate == 1 ){
+    // To stop the game, use the following:
+    clearInterval(Game._intervalId);
+  }
 }
 
 function decreaseGut()
 {
-   gutRate--;
-   document.getElementById("gutRate").innerHTML=gutRate;
+  gutRate--;
+  document.getElementById("gutRate").innerHTML=gutRate;
 }
 
 function increaseLiver()
@@ -62,8 +66,6 @@ function decreaseMuscle()
    document.getElementById("muscleRate").innerHTML=muscleRate;
 }
 
-<!-- this is needed because the gauge.js needs to run after canvas elements are loaded -->
-window.onload=function(){
 
 var opts = {
   lines: 12, // The number of lines to draw
@@ -81,46 +83,6 @@ var opts = {
   strokeColor: '#E0E0E0',   // to see which ones work best for you
   generateGradient: true
 };
-
-<!-- TODO this stuff needs to get moved into functions -->
-var target = document.getElementById('glucoseGauge'); // your canvas element
-var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
-gauge.maxValue = 3000; // set max gauge value
-gauge.animationSpeed = 32; // set animation speed (32 is default value)
-gauge.set(2000); // set actual value
-
-target = document.getElementById('nefaGauge'); // your canvas element
-gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
-gauge.maxValue = 3000; // set max gauge value
-gauge.animationSpeed = 32; // set animation speed (32 is default value)
-gauge.set(3000); // set actual value
-
-target = document.getElementById('hbGauge'); // your canvas element
-gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
-gauge.maxValue = 3000; // set max gauge value
-gauge.animationSpeed = 32; // set animation speed (32 is default value)
-gauge.set(500); // set actual value
-
-target = document.getElementById('aaGauge'); // your canvas element
-gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
-gauge.maxValue = 3000; // set max gauge value
-gauge.animationSpeed = 32; // set animation speed (32 is default value)
-gauge.set(1000); // set actual value
-
-target = document.getElementById('nh3Gauge'); // your canvas element
-gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
-gauge.maxValue = 3000; // set max gauge value
-gauge.animationSpeed = 32; // set animation speed (32 is default value)
-gauge.set(1600); // set actual value
-
-target = document.getElementById('ureaGauge'); // your canvas element
-gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
-gauge.maxValue = 3000; // set max gauge value
-gauge.animationSpeed = 32; // set animation speed (32 is default value)
-gauge.set(1200); // set actual value
-
-
-} // end window.onload
 
 </script>
 
@@ -193,15 +155,15 @@ gauge.set(1200); // set actual value
     <td>NEFA</td>
   </tr>
   <tr>
-    <td><canvas id="hbGauge">gauge</canvas></td>
+    <td></td>
     <td>HB</td>
   </tr>
   <tr>
-    <td><canvas id="aaGauge">gauge</canvas></td>
+    <td></td>
     <td>amino acids</td>
   </tr>
   <tr>
-    <td><canvas id="nh3Gauge">gauge</canvas></td>
+    <td></td>
     <td>NH3</td>
   </tr>
   <tr>
@@ -209,6 +171,53 @@ gauge.set(1200); // set actual value
     <td>urea</td>
   </tr>
 </table>
+
+<script>
+
+// TODO replace real glucoseValue
+var glucoseValue = 0;
+var target = document.getElementById('glucoseGauge');
+var glucoseGauge = new Gauge(target).setOptions(opts);
+glucoseGauge.maxValue = 3000;
+glucoseGauge.animationSpeed = 32;
+
+// TODO: replace real nefaValue
+var nefaValue = 3000;
+var target = document.getElementById('nefaGauge');
+var nefaGauge = new Gauge(target).setOptions(opts);
+nefaGauge.maxValue = 3000;
+nefaGauge.animationSpeed = 32;
+
+
+var Game = {};
+
+Game.draw = function(){   
+                        // TODO: use real values 
+                        glucoseGauge.set( glucoseValue+=50 ); 
+                        nefaGauge.set( nefaValue-=50); 
+                      };
+
+Game.update = function(){ 
+                          // TODO: use real values 
+                          if( glucoseValue >=2800  ){ glucoseValue = 0; };
+                          if( nefaValue <= 100 ){ nefaValue = 3000; };
+                        };
+
+Game.fps = 50;
+
+Game.run = function(){
+
+  Game.draw();
+  Game.update();
+
+};
+
+// Start the game loop
+Game._intervalId = setInterval(Game.run, 1000 / Game.fps);
+
+
+</script>
+
 
 </body>
 
