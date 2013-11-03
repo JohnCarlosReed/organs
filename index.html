@@ -219,7 +219,6 @@ Game.draw = function(){
                           //  Only update the gauges at X intervals.  Frequent
                           //  updates will lag the onclick response time
                           if( counter % interval == 0 ) {  
-                              console.log( "in draw" )
                               glucoseGauge.set( glucoseValue+=50 ); 
                               nefaGauge.set( nefaValue+=50); 
                               hbGauge.set( hbValue+=50); 
@@ -243,7 +242,7 @@ Game.fps = 50;
 Game.run = function(){
     Game.draw();
     Game.update();
-    ticker++;
+    counter++;
 };
 
 // Start the game loop
