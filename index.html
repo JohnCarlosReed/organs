@@ -212,16 +212,21 @@ ureaGauge.maxValue = 3000;
 ureaGauge.animationSpeed = 32;
 
 var Game = {};
+var counter = 0;
+var interval = 10;
 
-Game.draw = function(){ //TODO:  this works but is bogging down the game
-                        //       need to add a modulus counter to reduce
-                        //       the update frequency 
-                        glucoseGauge.set( glucoseValue+=50 ); 
-                        nefaGauge.set( nefaValue+=50); 
-                        hbGauge.set( hbValue+=50); 
-                        aaGauge.set( aaValue+=50); 
-                        nh3Gauge.set( nh3Value+=50); 
-                        ureaGauge.set( ureaValue+=50); 
+Game.draw = function(){ 
+                          //  Only update the gauges at X intervals.  Frequent
+                          //  updates will lag the onclick response time
+                          if( counter % interval == 0 ) {  
+                              console.log( "in draw" )
+                              glucoseGauge.set( glucoseValue+=50 ); 
+                              nefaGauge.set( nefaValue+=50); 
+                              hbGauge.set( hbValue+=50); 
+                              aaGauge.set( aaValue+=50); 
+                              nh3Gauge.set( nh3Value+=50); 
+                              ureaGauge.set( ureaValue+=50); 
+                          }
                       }; 
 
 Game.update = function(){ 
@@ -236,10 +241,9 @@ Game.update = function(){
 Game.fps = 50;
 
 Game.run = function(){
-
-  Game.draw();
-  Game.update();
-
+    Game.draw();
+    Game.update();
+    ticker++;
 };
 
 // Start the game loop
